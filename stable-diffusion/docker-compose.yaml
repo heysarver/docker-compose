@@ -8,10 +8,3 @@ services:
       - "7860:7860"
     volumes:
       - /home/asarver/data/stable-diffusion:/data
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            count: 1
-            capabilities: [gpu]

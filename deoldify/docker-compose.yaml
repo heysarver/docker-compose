@@ -8,10 +8,3 @@ services:
       - "7860:7860"
     volumes:
       - /home/asarver/data/jupyter-deoldify:/home/jovyan
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            count: 1
-            capabilities: [gpu]
