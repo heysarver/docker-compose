@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     container_name: stable_diffusion
+    runtime: nvidia
     image: goolashe/automatic1111-sd-webui:20230602
     ports:
       - "7860:7860"

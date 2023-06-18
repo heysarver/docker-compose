@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     container_name: deoldify
+    runtime: nvidia
     image: jupyter/tensorflow-notebook:python-3.10
     ports:
       - "7860:7860"
