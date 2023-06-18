@@ -5,6 +5,6 @@ services:
     runtime: nvidia
     image: jupyter/tensorflow-notebook:python-3.10
     ports:
-      - "7860:7860"
+      - "8888:8888"
     volumes:
       - /home/asarver/data/jupyter-deoldify:/home/jovyan
