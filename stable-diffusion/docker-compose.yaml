@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    container_name: stable_diffusion
+    image: goolashe/automatic1111-sd-webui:20230602
+    ports:
+      - "7860:7860"
+    volumes:
+      - /home/asarver/data/stable-diffusion:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]

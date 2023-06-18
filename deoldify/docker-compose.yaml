@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    container_name: deoldify
+    image: jupyter/tensorflow-notebook:python-3.10
+    ports:
+      - "7860:7860"
+    volumes:
+      - /home/asarver/data/jupyter-deoldify:/home/jovyan
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
