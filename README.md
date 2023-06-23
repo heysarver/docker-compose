@@ -1,2 +1,2 @@
-# docker-compose-gpu
-docker-compose files used on a GPU cloud VM
+# docker-compose
+docker-compose files I use
