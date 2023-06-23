@@ -1,0 +1,12 @@
+version: '3'
+services:
+  backup:
+    image: heysarver/backup-to-s3:bullseye
+    command: no-cron
+    environment:
+      ACCESS_KEY: accesskey
+      SECRET_KEY: secretkey
+      S3_PATH: s3://<bucket>/<path>/
+      # PARAMS: --host=nyc3.digitaloceanspaces.com --host-bucket=%(bucket)s.nyc3.digitaloceanspaces.com
+    volumes:
+      - /mnt/data:/data:ro

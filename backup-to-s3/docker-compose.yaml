@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backup:
+    image: heysarver/backup-to-s3:bullseye
+    restart: unless-stopped
+    environment:
+      ACCESS_KEY: accesskey
+      SECRET_KEY: secretkey
+      S3_PATH: s3://<bucket>/<path>/
+      # PARAMS: --host=nyc3.digitaloceanspaces.com --host-bucket=%(bucket)s.nyc3.digitaloceanspaces.com # remove for aws
+      CRON_SCHEDULE: '0 2 * * *'
+    volumes:
+      - /mnt/data:/data:ro
