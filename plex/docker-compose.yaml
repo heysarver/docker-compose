@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  plex:
+    image: linuxserver/plex
+    volumes:
+      - /data/docker-volumes/plex/config:/config
+      - /data_nas/media/movies:/movies
+      - /data_nas/media/tv_shows:/tv_shows
+      - /data_nas/media/4k_movies:/4k_movies
+      - /data_nas/media/concerts:/concerts
+      - /data_nas/media/comedy:/comedy
+      - /data_nas/media/music:/music
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - VERSION=docker
+    ports:
+      - 32400:32400
+      - 1900:1900/udp
+      - 3005:3005
+      - 5353:5353/udp
+      - 8324:8324
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+      - 32469:32469
+    restart: unless-stopped
