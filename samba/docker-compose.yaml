@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  samba:
+    image: dperson/samba
+    volumes:
+      - ${VOLUME1}
+      - ${VOLUME2}
+      - ${VOLUME3}
+      - ${VOLUME4}
+      - ${VOLUME5}
+    environment:
+      WORKGROUP: ${WORKGROUP}
+      USER1: ${USER1}
+      USER2: ${USER2}
+      SHARE1: ${SHARE1}
+      SHARE2: ${SHARE2}
+      SHARE3: ${SHARE3}
+      SHARE4: ${SHARE4}
+      SHARE5: ${SHARE5}
+      TZ: ${TZ}
+      RECYCLE: ${RECYCLE}
+      WIDELINKS: ${WIDELINKS}
+
+    ports:
+      - 139:139
+      #- 445:445
+    restart: unless-stopped
