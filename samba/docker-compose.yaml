@@ -2,13 +2,16 @@ version: '3'
 
 services:
   samba:
-    image: dperson/samba
+    networks:
+      - default
+    image: heysarver/samba:alpine-3.18
     volumes:
       - ${VOLUME1}
       - ${VOLUME2}
       - ${VOLUME3}
       - ${VOLUME4}
       - ${VOLUME5}
+      - ${VOLUME6}
     environment:
       WORKGROUP: ${WORKGROUP}
       USER1: ${USER1}
@@ -18,11 +21,16 @@ services:
       SHARE3: ${SHARE3}
       SHARE4: ${SHARE4}
       SHARE5: ${SHARE5}
+      SHARE6: ${SHARE6}
       TZ: ${TZ}
       RECYCLE: ${RECYCLE}
       WIDELINKS: ${WIDELINKS}
-
+      USERID: ${USERID}
+      GROUPID: ${GROUPID}
     ports:
-      - 139:139
-      - 445:445
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
     restart: unless-stopped
+#    entrypoint: bash -c "while true; do echo hello; sleep 2; done"
