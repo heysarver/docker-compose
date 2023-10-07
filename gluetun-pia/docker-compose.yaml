@@ -15,9 +15,10 @@ services:
       - 8388:8388/udp # Shadowsocks
     volumes:
       - ./gluetun:/gluetun
+      - gluetun-shared:/tmp/gluetun
     environment:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
-      - VPN_SERVICE_PROVIDER="private internet access"
+      - VPN_SERVICE_PROVIDER=private internet access
       - VPN_TYPE=openvpn
       # OpenVPN:
       - OPENVPN_USER=${USER}
@@ -30,5 +31,9 @@ services:
       # Server list updater
       # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-the-vpn-servers-list
       - UPDATER_PERIOD=
-      - SERVER_REGIONS=Canada
-      - VPN_PORT_FORWARDING:on
+      - SERVER_REGIONS=CA Ontario
+      - VPN_PORT_FORWARDING=on
+      - VPN_PORT_FORWARDING_STATUS_FILE=/tmp/gluetun/port
+
+volumes:
+  gluetun-shared:
